@@ -12,6 +12,7 @@ export class AppComponent {
   requestedSeats: number = 0;
   remainingSeats: number = 0;
   showModal: boolean = false;  // Controls the modal visibility
+  seatLimitExceeded: boolean = false; // To handle cases where requested seats exceed 7
 
   constructor(private bookingService: BookingService) {
     // Fetch seat status from the service
@@ -22,10 +23,16 @@ export class AppComponent {
   bookSeats() {
     const availableSeatsCount = this.seats.filter(seat => !seat.booked).length;
 
+    // Check if the requested seats exceed the limit (7 seats)
+    if (this.requestedSeats > 7) {
+      this.seatLimitExceeded = true;
+      return; // Stop further execution if seat limit is exceeded
+    }
+
     // Check if there are enough seats left
     if (availableSeatsCount < this.requestedSeats) {
       this.remainingSeats = availableSeatsCount;
-      this.showModal = true; // Show the modal
+      this.showModal = true; // Show the modal if not enough seats are available
     } else {
       this.completeBooking(this.requestedSeats); // Proceed with booking if enough seats are available
     }
@@ -45,6 +52,7 @@ export class AppComponent {
     });
 
     this.showModal = false; // Hide the modal once booking is done
+    this.seatLimitExceeded = false; // Reset seat limit error after successful booking
   }
 
   // User clicks 'Yes' to book the remaining seats

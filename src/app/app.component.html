@@ -5,6 +5,9 @@
     <label for="seatRequest">Number of seats to book:</label>
     <input id="seatRequest" type="number" [(ngModel)]="requestedSeats" min="1" max="7" />
     <button (click)="bookSeats()">Book Seats</button>
+
+     <!-- Show an error message if the seat limit is exceeded -->
+     <p *ngIf="seatLimitExceeded" class="error-message">Cannot exceed more than 7 seats.</p>
   </div>
 
   <!-- Modal for insufficient seats -->
