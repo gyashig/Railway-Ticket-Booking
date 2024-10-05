@@ -1,0 +1,139 @@
+/* General container */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  color: #3c40c6;
+  margin-bottom: 1rem;
+}
+
+/* Form */
+.form {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+
+.form label {
+  font-size: 1.2rem;
+  color: #2f3542;
+}
+
+.form input {
+  width: 50px;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.form button {
+  background-color: #1abc9c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #16a085;
+}
+
+/* Layout Title */
+.layout-title {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #2f3542;
+}
+
+/* Seat Layout */
+.seat-layout {
+  display: grid;
+  grid-template-columns: repeat(7, 60px);
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.seat {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Seat Colors */
+.available {
+  background-color: #27ae60;  /* Green */
+}
+
+.booked {
+  background-color: #e74c3c;  /* Red */
+}
+
+.just-booked {
+  background-color: #f1c40f;  /* Yellow */
+}
+
+.seat:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* Modal Styling */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background-color: #1abc9c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.modal-content button:hover {
+  background-color: #16a085;
+}

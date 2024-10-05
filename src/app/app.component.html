@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="title">🚂 Train Seat Reservation 🚂</h1>
+
+  <div class="form">
+    <label for="seatRequest">Number of seats to book:</label>
+    <input id="seatRequest" type="number" [(ngModel)]="requestedSeats" min="1" max="7" />
+    <button (click)="bookSeats()">Book Seats</button>
+  </div>
+
+  <!-- Modal for insufficient seats -->
+  <div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <p>Not enough seats are left. Only {{ remainingSeats }} seats are available.</p>
+      <p>Do you want to book the remaining seats?</p>
+      <button (click)="bookRemainingSeats()">Yes</button>
+      <button (click)="cancelBooking()">No</button>
+    </div>
+  </div>
+
+  <!-- Output the seats that have been booked -->
+  <div *ngIf="bookedSeats.length > 0" class="booked-seats">
+    <h3>Seats Just Booked: {{ bookedSeats.join(', ') }}</h3>
+  </div>
+
+  <!-- Display the seat layout with color-coded availability status -->
+  <h2 class="layout-title">Seats Layout</h2>
+  <div class="seat-layout">
+    <div *ngFor="let seat of seats" class="seat" [ngClass]="{
+      'just-booked': seat.justBooked,
+      'booked': seat.booked && !seat.justBooked,
+      'available': !seat.booked && !seat.justBooked
+    }">
+      {{ seat.id }}
+    </div>
+  </div>
+</div>
